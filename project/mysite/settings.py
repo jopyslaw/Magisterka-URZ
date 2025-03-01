@@ -27,6 +27,12 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+PASSWORD_HASHERS = [
+    #'api.hashers.PlaintextPasswordHasher', # Autorski hasher który nie hashuje hasła tylko zapiusje jest jako zwykły tekst
+    #'django.contrib.auth.hashers.MD5PasswordHasher', # Hasher MD5 który jest obecnie jednym z najgorszych algorytmów służących do hashowania
+    #'django.contrib.auth.hashers.Argon2PasswordHasher', # Argon2 Hasher jeden z najlepszych hasherów obecnie dostępnych
+    'django.contrib.auth.hashers.PBKDF2PasswordHasher',
+]
 
 # Application definition
 
