@@ -27,6 +27,11 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+AUTHENTICATION_BACKENDS = [
+    "api.authentication.SafeModelBackend", # Własna metoda służąca do autentykacji użytkownika która jest zabezpieczona przed podatnością
+    #'django.contrib.auth.backends.ModelBackend', # Domyślny backend w którym istnieje podatność
+]
+
 
 # Application definition
 
