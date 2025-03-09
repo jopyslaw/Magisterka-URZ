@@ -14,11 +14,10 @@ def get_user_non_protected(request):
     
     with connection.cursor() as cursor:
         cursor.execute(query)  
-        user = cursor.fetchone()
-        print(user)
+        users = cursor.fetchall()
 
-    if user:
-        return JsonResponse({"id": user[0], "username": user[4], "password": user[1]})
+    if users:
+        return JsonResponse({"users": users})
     return JsonResponse({"error": "User not found"}, status=404)
 
 
@@ -28,11 +27,10 @@ def get_user_protected(request):
     if user_id is None:  
         return JsonResponse({"error": "Missing user_id parameter"}, status=400)
 
-    if not user_id.isdigit():  
-        return JsonResponse({"error": "Invalid ID"}, status=400)
-
     try:
         user = User.objects.get(id=user_id) 
         return JsonResponse({"id": user.id, "username": user.username, "password": user.password})
     except User.DoesNotExist:
         return JsonResponse({"error": "User not found"}, status=404)
+    except ValueError:
+        return JsonResponse({"error": "User Id is not a number"})
