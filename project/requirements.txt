@@ -1,2 +1,6 @@
 Django
 python-dotenv
+requests
+django-ratelimit
+
+
