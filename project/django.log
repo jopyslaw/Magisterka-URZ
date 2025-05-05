@@ -1,0 +1,10 @@
+Watching for file changes with StatReloader
+"GET /api/login-unsecure/ HTTP/1.1" 200 628
+Login attempt: username=admin, password=admin
+"POST /api/login-unsecure/ HTTP/1.1" 302 0
+"GET /api/home/ HTTP/1.1" 200 49
+"GET /api/login-secure/ HTTP/1.1" 200 628
+Login attempt: username=admin, password=****
+"POST /api/login-secure/ HTTP/1.1" 302 0
+"GET /api/home/ HTTP/1.1" 200 49
+"GET /api/login-unsecure/ HTTP/1.1" 200 628
