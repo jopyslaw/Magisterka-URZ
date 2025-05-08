@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-spudm)2%3#!1mprv1xyptr_ax_zo306u%!(zd187flp+ry%7+!'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -37,8 +37,15 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_unicorn',
     'api'
 ]
+
+UNICORN = {"SERIAL": {"ENABLED": True, "TIMEOUT": 5,},
+           "CACHE_ALIAS": "default",
+            "MINIFIED": True
+           }
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

