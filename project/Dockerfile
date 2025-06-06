@@ -23,4 +23,6 @@ RUN pip install -r requirements.txt
 # port where the Django app runs  
 EXPOSE 8000  
 # start server  
+RUN python manage.py collectstatic --noinput
+
 CMD python manage.py runserver  

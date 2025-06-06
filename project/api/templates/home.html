@@ -1,17 +1,17 @@
+{% load unicorn %}
 <html>
   <head>
     <title>Profile Card</title>
+    {% unicorn_scripts %}
   </head>
   <body>
     <h1>Welcome to the Profile Card</h1>
     <div>
       <h2>Profile Card Component</h2>
-      {% load unicorn %}
       <!-- Załaduj tagi django-unicorn -->
-      {% unicorn "profile_card" %}
+      {% unicorn "profile_card" %} {% csrf_token %}
       <!-- Wywołanie komponentu -->
     </div>
-    {% unicorn_scripts %}
     <!-- Załaduj wymagane skrypty dla Unicorn -->
   </body>
 </html>
